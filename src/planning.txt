@@ -1,0 +1,85 @@
+Mastermind class
+    Properties:
+        private final Board board: stores this round's board
+        private final Combination solution: the winning solution to this round
+        private final Peg[] pegs: array of possible peg
+        private final Scanner scanner
+    Methods:
+        public Mastermind(int rows, int columns)
+            board = new Board(rows, columns)
+            solution = getRandomCombination(int columns)
+        public boolean play
+            while (board.emptyRowsRemain())
+                use scanner to get a combo
+                create a Combination object, split String on ""
+                if (validateInput)
+                    Combination results = solution.compare
+                    board.add(combo, results)
+                    print board
+                    if (results == everything correct) return true
+                else
+                    ask for another combo
+            return false
+        private Combination getRandomCombination(int num)
+            return new Combination(array of random elements from pegs)
+        public static String getInstructions
+            return instructions
+        private boolean validateInput(Combination combo)
+            return (combo.length == board[0].length && each peg's index in pegs is < -1)
+
+Board class
+    Properties:
+        private Peg[][] board
+        private lastRow = 0
+    Methods:
+        public Board(int row, int col)
+            board = new Peg[row][col + 2]
+        public void add(Combination combo, Combination result)
+            populate combo and result to lastRow
+            lastRow++
+        public String toString
+            return String representation of board.  delimit user combo from results combo
+        public boolean emptyRowsRemain
+            return (!(board.length == lastRow))
+        public int getColumns
+            return board[0].length - 2
+
+Combination class
+    Properties:
+        Pegs[] combo
+    Methods:
+        public Combination(Pegs[] combo)
+            this.combo = combo
+        public Combination compare(Combination combo)
+            return a Combination with two pegs, first for number of Pegs in same position, second for number of Pegs in different positions
+
+Peg class
+    Properties:
+        String symbol
+    Methods:
+        public Peg(String symbol)
+            this.symbol = symbol
+        public boolean equals(Peg other)
+            return this.symbol equals other.symbol
+        public String toString
+            return symbol
+
+Launcher class
+    Properties:
+        Mastermind game
+        Scanner scanner
+    Methods:
+        public static void main(String[] args)
+            menu: 1 for new game, 2 for instructions, 3 for quit
+            1
+                ask for row and col
+                validate that row and col are > 0
+                game = new Mastermind(row, col)
+                game.play
+                if (win) yay
+                else aw
+                menu
+            2
+                print Mastermind.getInstructions
+            3
+                do nothing
