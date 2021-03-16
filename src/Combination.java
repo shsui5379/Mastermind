@@ -2,7 +2,7 @@
  * A sequence of Pegs
  */
 public class Combination {
-  /** 2D array for the sequence of Pegs */
+  /** Array for the sequence of Pegs */
   private final Peg[] PEGS;
 
   /**
