@@ -44,4 +44,11 @@ public class Combination {
   public int getLength() {
     return PEGS.length;
   }
+
+  /**
+   * @return This Combination as an Array of Pegs
+   */
+  public Peg[] toArray() {
+    return PEGS;
+  }
 }
