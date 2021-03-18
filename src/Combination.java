@@ -6,11 +6,22 @@ public class Combination {
   private final Peg[] PEGS;
 
   /**
-   * Constructs a Combination and initialize its combination
+   * Constructs a Combination and initialize its combination from given Pegs
    * @param combo  The combination of Pegs to store
    */
   public Combination(Peg[] combo) {
     PEGS = combo;
+  }
+
+  /**
+   * Constructs a Combination and initializes its combination from a given String
+   * @param combo  A String representing the Combination to initialize.  Each single character becomes its own Peg
+   */
+  public Combination(String combo) {
+    PEGS = new Peg[combo.length()];
+
+    for (int i = 0; i < PEGS.length; i++)
+      PEGS[i] = new Peg(combo.substring(i, i + 1));
   }
 
   /**
