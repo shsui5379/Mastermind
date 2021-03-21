@@ -58,10 +58,20 @@ public class Board {
 
     for (Peg[] row : BOARD) {
       if (row[0] != null) {
-        for (int i = 0; i < row.length - 2; i++)
-          output += row[i].toString() + "|";
+        String substring = "";
 
-        output += "||" + row[row.length - 2].toString() + "|" + row[row.length - 1].toString() + "\n";
+        for (int i = 0; i < row.length - 2; i++)
+          substring += row[i].toString() + "|";
+
+        substring += "||" + row[row.length - 2].toString() + "|" + row[row.length - 1].toString() + "\n";
+
+        int numDashes = substring.length();
+        for (int i = 0; i < numDashes; i++)
+          substring += "-";
+
+        substring += "\n";
+
+        output += substring;
       }
     }
 
