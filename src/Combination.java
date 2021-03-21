@@ -62,4 +62,16 @@ public class Combination {
   public Peg[] toArray() {
     return PEGS;
   }
+
+  /**
+   * Compares if the sequence of Pegs are identical
+   * @param other  The other Combination to compare with
+   * @return  true if both Combinations are identical
+   */
+  public boolean equals(Combination other) {
+    Combination comparison = compare(other);
+
+    return comparison.PEGS[0].equals(new Peg(Integer.toString(other.getLength()))) &&
+            comparison.PEGS[1].equals(new Peg(Integer.toString(0)));
+  }
 }
