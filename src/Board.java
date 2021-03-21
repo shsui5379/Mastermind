@@ -57,9 +57,12 @@ public class Board {
     String output = "";
 
     for (Peg[] row : BOARD) {
-      for (int i = 0; i < row.length - 2; i++)
-        output += row[i].toString() + "|";
-      output += "||" + row[row.length - 2].toString() + "|" + row[row.length - 1].toString() + "\n";
+      if (row[0] != null) {
+        for (int i = 0; i < row.length - 2; i++)
+          output += row[i].toString() + "|";
+
+        output += "||" + row[row.length - 2].toString() + "|" + row[row.length - 1].toString() + "\n";
+      }
     }
 
     return output;
