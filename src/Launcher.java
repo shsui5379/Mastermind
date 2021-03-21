@@ -22,12 +22,12 @@ public class Launcher {
         int row = 0;
         int col = 0;
 
-        while (row < 0) {
+        while (row < 1) {
           System.out.print("How many attempts would you like?  ");
           row = SCANNER.nextInt();
           SCANNER.nextLine();
         }
-        while (col < 0) {
+        while (col < 1) {
           System.out.print("How long should the combinations be?  ");
           col = SCANNER.nextInt();
           SCANNER.nextLine();
