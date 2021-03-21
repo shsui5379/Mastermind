@@ -12,7 +12,7 @@ public class Launcher {
     while (input != 3) {
       System.out.println("Mastermind:\n\n" +
               "1: Play game\n" +
-              "2: Get instructions" +
+              "2: Get instructions\n" +
               "3: Quit");
 
       input = SCANNER.nextInt();
