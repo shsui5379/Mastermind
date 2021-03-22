@@ -44,13 +44,6 @@ public class Board {
   }
 
   /**
-   * @return the number of Pegs of user input that this Board can fit
-   */
-  public int getColumns() {
-    return BOARD[0].length - 2;
-  }
-
-  /**
    * @return  a String representation of this Board
    */
   public String toString() {
