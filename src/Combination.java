@@ -33,13 +33,15 @@ public class Combination {
     int exactPositionCount = 0;
     int wrongPositionCount = 0;
 
-    for (int i = 0; i < PEGS.length; i++) {
-      if (PEGS[i].equals(combo.PEGS[i])) exactPositionCount++;
+    for (int i = 0; i < combo.PEGS.length; i++) {
+      if (combo.PEGS[i].equals(PEGS[i])) exactPositionCount++;
       else {
-        for (int j = i; j < PEGS.length; j++) {
-          if (PEGS[j].equals(combo.PEGS[j])) {
-            wrongPositionCount++;
-            break;
+        for (int j = 0; j < combo.PEGS.length; j++) {
+          if (i != j) {
+            if (combo.PEGS[i].equals(PEGS[j])) {
+              wrongPositionCount++;
+              break;
+            }
           }
         }
       }
