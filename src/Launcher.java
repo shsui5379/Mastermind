@@ -4,7 +4,6 @@ import java.util.Scanner;
  * Game launcher
  */
 public class Launcher {
-  private Mastermind game;
   private final Scanner SCANNER = new Scanner(System.in);
 
   public void open() {
@@ -33,13 +32,7 @@ public class Launcher {
           SCANNER.nextLine();
         }
 
-        game = new Mastermind(row, col);
-
-        if (game.play()) {
-          System.out.println("Congrats, you won!");
-        } else {
-          System.out.println("Sorry, you lost.");
-        }
+        (new Mastermind(row, col)).play();
       } else if (input == 2) {
         System.out.println(Mastermind.getInstructions());
       } else if (input != 3) {

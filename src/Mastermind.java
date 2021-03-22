@@ -32,9 +32,8 @@ public class Mastermind {
 
   /**
    * Main method for the game
-   * @return  whether the player won this round
    */
-  public boolean play() {
+  public void play() {
     while (BOARD.emptyRowsRemain()) {
       System.out.print("Enter guess:  ");
       String inputString = SCANNER.nextLine();
@@ -45,14 +44,14 @@ public class Mastermind {
         BOARD.add(inputCombo, results);
         System.out.println(BOARD);
         if (inputCombo.equals(SOLUTION)) {
-          return true;
+          System.out.println("Congrats, you solved the code!");
+          return;
         }
       } else {
         System.out.println("Invalid input.  Try again.");
       }
     }
-
-    return false;
+    System.out.println("You ran out of guesses.  The solution was " + SOLUTION);
   }
 
   /**

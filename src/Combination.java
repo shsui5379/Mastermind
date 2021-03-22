@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * A sequence of Pegs
  */
@@ -75,5 +77,12 @@ public class Combination {
 
     return comparison.PEGS[0].equals(new Peg(Integer.toString(other.getLength()))) &&
             comparison.PEGS[1].equals(new Peg(Integer.toString(0)));
+  }
+
+  /**
+   * @return  String representation of this Combination
+   */
+  public String toString() {
+    return Arrays.toString(PEGS);
   }
 }
