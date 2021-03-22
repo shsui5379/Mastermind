@@ -22,7 +22,7 @@ public class Board {
    * @param result  The Combination representing the results of comparing user input to answer
    */
   public void add(Combination combo, Combination result) {
-    if (lastRow < BOARD.length) {
+    if (lastRow < BOARD.length - 1) {
       lastRow++;
       Peg[] row = BOARD[lastRow];
       Peg[] userCombo = combo.toArray();
@@ -40,7 +40,7 @@ public class Board {
    * @return true if there's empty rows left on this Board
    */
   public boolean emptyRowsRemain() {
-    return !(BOARD.length == lastRow);
+    return !(BOARD.length - 1 == lastRow);
   }
 
   /**
