@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -34,23 +35,29 @@ public class Combination {
   public Combination compare(Combination combo) {
     int exactPositionCount = 0;
     int wrongPositionCount = 0;
+    ArrayList<Integer> matchedPositions = new ArrayList<Integer>();  //prevent double counts for Pegs that were already matched by exact position
+    ArrayList<Integer> processedPositions = new ArrayList<Integer>(); //prevent double counts for Pegs that are matched by symbol in a different position
 
-    for (int i = 0; i < combo.PEGS.length; i++) {
-      if (combo.PEGS[i].equals(PEGS[i])) exactPositionCount++;
-      else {
-        for (int j = 0; j < combo.PEGS.length; j++) {
-          if (i != j) {
-            if (combo.PEGS[i].equals(PEGS[j])) {
-              wrongPositionCount++;
-              break;
-            }
-          }
+    for (int i = 0; i < combo.PEGS.length; i++) { //find match by exact position
+      if (combo.PEGS[i].equals(PEGS[i])) {
+        exactPositionCount++;
+        matchedPositions.add(i);
+        processedPositions.add(i);
+      }
+    }
+
+    for (int i = 0; i < PEGS.length; i++) { //match Peg symbol but in different position
+      for (int j = 0; j < combo.PEGS.length; j++) {
+        if (i != j && !processedPositions.contains(j) && !matchedPositions.contains(i) && combo.PEGS[i].equals(PEGS[j])) {
+          wrongPositionCount++;
+          processedPositions.add(j);
+          break;
         }
       }
     }
 
     return new Combination(new Peg[] {new Peg(Integer.toString(exactPositionCount)),
-                                      new Peg(Integer.toString(wrongPositionCount))});
+            new Peg(Integer.toString(wrongPositionCount))});
   }
 
   /**
